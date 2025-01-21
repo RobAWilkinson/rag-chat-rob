@@ -39,11 +39,7 @@ loader = SimpleDirectoryReader(
     required_exts=[".txt", ".md"],
     recursive=True
 )
-
 documents = loader.load_data()
-
-print(f"num docs: {len(documents)}")
-
 pipeline = IngestionPipeline(
     transformations=[
         embed_model
