@@ -1,18 +1,14 @@
 from qdrant_client import QdrantClient
 from llama_index.vector_stores.qdrant import QdrantVectorStore
 from llama_index.core import Settings
-from llama_index.llms.ollama import Ollama
-from llama_index.core import PromptTemplate
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.core import VectorStoreIndex, ServiceContext, SimpleDirectoryReader, StorageContext
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.ingestion import IngestionPipeline, IngestionCache
 import os
 
 # Set up the embedding model globally
 embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
 Settings.embed_model = embed_model
-llm = Ollama(model="deepseek-r1:7b", request_timeout=120.0)
-Settings.llm = llm
 
 collection_name = "chat_with_notes"
 client = QdrantClient(

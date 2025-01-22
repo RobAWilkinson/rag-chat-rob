@@ -2,7 +2,6 @@ import streamlit as st
 from qdrant_client import QdrantClient
 from llama_index.vector_stores.qdrant import QdrantVectorStore
 from llama_index.core import VectorStoreIndex, Settings, PromptTemplate
-from llama_index.llms.ollama import Ollama
 from llama_index.llms.openai import OpenAI  # We'll use OpenAI interface for LMStudio
 
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
