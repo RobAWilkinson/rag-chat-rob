@@ -11,7 +11,7 @@ embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-
 Settings.embed_model = embed_model
 llm = OpenAI(
     model="gpt-3.5-turbo",
-    api_base="http://192.168.2.157:1234/v1",  # Default LMStudio port
+    api_base="http://localhost:1234/v1",  # Default LMStudio port
     api_key="dummy",  # LMStudio doesn't need a real key
     temperature=0.7,
 )
@@ -33,7 +33,6 @@ query = st.text_input("Ask a question about your notes:")
 # When the user enters a query
 if query:
     with st.spinner("Searching..."):
-        response = query_engine.query(query)
         qa_prompt_tmpl_str = (
             "Context information is below.\n"
             "---------------------\n"
